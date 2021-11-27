@@ -16,10 +16,8 @@ import org.springframework.stereotype.Repository;
 import mx.tec.web.entity.Manga;
 
 /**
- * Product JPA Repository
+ * Manga JPA Repository
  * @author eddy
   */
 @Repository
-public interface MangaShelfRepository extends JpaRepository<Manga, Long> {
-    
-}
+public interface MangaRepository extends JpaRepository<Manga, Long> {}
