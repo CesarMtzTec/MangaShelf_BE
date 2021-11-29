@@ -17,6 +17,7 @@ import java.util.Calendar;
  * @author Scyruz
  *
  */
+@Entity
 public class User {
 
 	/** User id */
@@ -31,7 +32,7 @@ public class User {
 	private String password;
 
     /** User email */
-    private Calendar email;
+    private String email;
     
 	/**
 	 * No arguments constructor
@@ -46,7 +47,7 @@ public class User {
 	 * @param password
 	 * @param email
 	 */
-	public User(final long id, String username, String password, Calendar email) {
+	public User(final long id, String username, String password, String email) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -98,14 +99,14 @@ public class User {
 	/**
 	 * @return the email
 	 */
-	public Calendar getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
 	/**
 	 * @param email the email to set
 	 */
-	public void setEmail(Calendar email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 

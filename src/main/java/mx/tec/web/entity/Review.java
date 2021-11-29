@@ -15,6 +15,7 @@ import java.util.Calendar;
  * @author Scyruz
  *
  */
+@Entity
 public class Review {
 
     /** Review id */

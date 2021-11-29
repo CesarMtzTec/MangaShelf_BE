@@ -12,11 +12,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author Scyruz
  *
  */
+@Entity
 public class Manga {
 
 	/** Manga id */
@@ -31,7 +33,7 @@ public class Manga {
 	private String author;
 
 	/** Manga publicationDate */
-	private Calendar publicationDate;
+	private Date publicationDate;
 	
 	/**
 	 * No arguments constructor
@@ -47,7 +49,7 @@ public class Manga {
 	 * @param publicationDate
 	 */
 
-	public Manga(final long id, String title, String author, Calendar publicationDate) {
+	public Manga(final long id, String title, String author, Date publicationDate) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
@@ -99,14 +101,14 @@ public class Manga {
 	/**
 	 * @return the publicationDate
 	 */
-	public Calendar getPublicationDate() {
+	public Date getPublicationDate() {
 		return publicationDate;
 	}
 
 	/**
 	 * @param publicationDate the publicationDate to set
 	 */
-	public void setPublicationDate(Calendar publicationDate) {
+	public void setPublicationDate(Date publicationDate) {
 		this.publicationDate = publicationDate;
 	}
 

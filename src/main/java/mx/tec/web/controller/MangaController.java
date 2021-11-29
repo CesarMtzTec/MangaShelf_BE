@@ -136,12 +136,12 @@ public class MangaController {
 
 		return responseEntity;
 	}
-
+	
 	@ExceptionHandler(ConstraintViolationException.class)
-	public ResponseEntity<String> onConstraintViolationException(final ConstraintViolationException cve) {
-		LOG.error("Invalid parameter", cve);
-		return new ResponseEntity<>(cve.getMessage(), HttpStatus.BAD_REQUEST);
-	}
+    public ResponseEntity<String> onConstraintViolationException(final ConstraintViolationException cve) {
+    	LOG.error("[Controller]: Invalid parameter", cve);
+        return new ResponseEntity<>(cve.getMessage(), HttpStatus.BAD_REQUEST);
+    }
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<String> onMethodArgumentNotValidException(final MethodArgumentNotValidException manve) {

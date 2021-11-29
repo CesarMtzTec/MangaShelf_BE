@@ -16,6 +16,7 @@ import java.util.Calendar;
  * @author Scyruz
  *
  */
+@Entity
 public class ToRead {
 
     /** ToRead id */
