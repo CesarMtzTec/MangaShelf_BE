@@ -25,10 +25,10 @@ public class ToRead {
 	private long id;    
     
     /** ToRead userId */
-    private String userId;
+    private long userId;
 
     /** ToRead mangaId */ 
-    private String mangaId;
+    private long mangaId;
 
     /** ToRead dateAdded */
     private Calendar dateAdded;   
@@ -46,7 +46,7 @@ public class ToRead {
 	 * @param mangaId
 	 * @param dateAdded
 	 */
-	public ToRead(final long id, String userId, String mangaId, Calendar dateAdded) {
+	public ToRead(final long id, long userId, long mangaId, Calendar dateAdded) {
 		this.id = id;
 		this.userId = userId;
 		this.mangaId = mangaId;
@@ -70,28 +70,28 @@ public class ToRead {
 	/**
 	 * @return the userId
 	 */
-	public String getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(String userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
 	/**
 	 * @return the mangaId
 	 */
-	public String getMangaId() {
+	public long getMangaId() {
 		return mangaId;
 	}
 
 	/**
 	 * @param mangaId the mangaId to set
 	 */
-	public void setMangaId(String mangaId) {
+	public void setMangaId(long mangaId) {
 		this.mangaId = mangaId;
 	}
 

@@ -11,9 +11,9 @@ import java.util.Calendar;
  */
 public class ReviewVO {
 
-	private String id;
-	private String userId;
-	private String mangaId;
+	private long id;
+	private long userId;
+	private long mangaId;
 	private String description;
     private Float rate;
     private Calendar date;
@@ -32,7 +32,7 @@ public class ReviewVO {
 	 * @param rate
 	 * @param date
 	 */
-	public ReviewVO(String id, String userId, String mangaId, String description, Float rate, Calendar date) {
+	public ReviewVO(long id, long userId, long mangaId, String description, Float rate, Calendar date) {
 		this.id = id;
 		this.userId = userId;
 		this.mangaId = mangaId;
@@ -44,42 +44,42 @@ public class ReviewVO {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
 	/**
 	 * @return the userId
 	 */
-	public String getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(String userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
 	/**
 	 * @return the mangaId
 	 */
-	public String getMangaId() {
+	public long getMangaId() {
 		return mangaId;
 	}
 
 	/**
 	 * @param mangaId the mangaId to set
 	 */
-	public void setMangaId(String mangaId) {
+	public void setMangaId(long mangaId) {
 		this.mangaId = mangaId;
 	}
 

@@ -1,9 +1,5 @@
 package mx.tec.web.entity;
 
-import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,10 +20,10 @@ public class Review {
 	private long id;
 
     /** Review userId */    
-	private String userId;
+	private long userId;
 
     /** Review mangaId */
-	private String mangaId;
+	private long mangaId;
 
     /** Review description */
 	private String description;
@@ -53,7 +49,7 @@ public class Review {
 	 * @param rate
 	 * @param date
 	 */
-	public Review(final long id, String userId, String mangaId, String description, Float rate, Calendar date) {
+	public Review(final long id, Long userId, Long mangaId, String description, Float rate, Calendar date) {
 		this.id = id;
 		this.userId = userId;
 		this.mangaId = mangaId;
@@ -79,28 +75,28 @@ public class Review {
 	/**
 	 * @return the userId
 	 */
-	public String getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(String userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
 	/**
 	 * @return the mangaId
 	 */
-	public String getMangaId() {
+	public long getMangaId() {
 		return mangaId;
 	}
 
 	/**
 	 * @param mangaId the mangaId to set
 	 */
-	public void setMangaId(String mangaId) {
+	public void setMangaId(long mangaId) {
 		this.mangaId = mangaId;
 	}
 

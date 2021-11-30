@@ -11,7 +11,7 @@ import java.util.Calendar;
  */
 public class UserVO {
 
-	private String id;
+	private long id;
 	private String username;
 	private String password;
     private Calendar email;
@@ -28,7 +28,7 @@ public class UserVO {
 	 * @param password
 	 * @param email
 	 */
-	public UserVO(String id, String username, String password, Calendar email) {
+	public UserVO(long id, String username, String password, Calendar email) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -38,14 +38,14 @@ public class UserVO {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
