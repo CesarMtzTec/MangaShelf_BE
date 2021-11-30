@@ -1,7 +1,10 @@
 package mx.tec.web.controller;
 
+import java.util.Optional;
+
 import javax.annotation.Resource;
 import javax.persistence.EntityExistsException;
+import javax.validation.constraints.Min;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +44,26 @@ public class UserController {
     @Resource
     private SecurityManager securityManager;
 
+    /**
+     * The end point for GET url/user/{id}
+     * @param user a json containing the info for the User
+     * @return If the User is found successfully then status 200 and the User info is returned, otherwise it returns status 204
+     */
+    @GetMapping("/user/{id}")
+	public ResponseEntity<UserVO> getUser(@PathVariable(value = "id") @Min(value = 0, message = "The id must be positive") long id) {
+		LOG.info("Getting the user by id: {}", id);
+		ResponseEntity<UserVO> responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		Optional<UserVO> user = userManager.getUser(id);
+		
+		if (user.isPresent()) {
+			responseEntity = new ResponseEntity<>(user.get(), HttpStatus.OK);
+		} else {
+			LOG.warn("User with id {} not found ", id);
+		}
+
+		return responseEntity;
+	}
+    
     /**
      * The end point for POST {url}/user
      * @param user a json containing the info for the new User
