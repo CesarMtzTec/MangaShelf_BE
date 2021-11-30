@@ -4,21 +4,18 @@
 package mx.tec.web.entity;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
-import java.util.Calendar;
 
 /**
  * @author Scyruz
  *
  */
 @Entity
-public class User {
+public class User implements Serializable {
+	private static final long serialVersionUID = 5614413979775753737L;
 
 	/** User id */
 	@Id

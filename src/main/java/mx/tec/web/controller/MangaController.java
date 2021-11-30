@@ -40,7 +40,7 @@ import mx.tec.web.manager.MangaManager;
 @RequestMapping("/api")
 @Validated
 public class MangaController {
-	private static final String MANGA_WITH_ID_NOT_FOUND = "[Controller]: Manga with id {} not found";
+	private static final String MANGA_WITH_ID_NOT_FOUND = "[MangaController]: Manga with id {} not found";
 	private static final Logger LOG = LoggerFactory.getLogger(MangaController.class);
 
 	/** A reference to the Manga Manager */
@@ -53,7 +53,7 @@ public class MangaController {
 	 */
 	@GetMapping("/mangas")
 	public ResponseEntity<List<MangaVO>> getMangas() {
-		LOG.debug("[Controller]: Getting all the mangas");
+		LOG.debug("[MangaController]: Getting all the mangas");
 		List<MangaVO> mangas = mangaManager.getMangas();
 
 		return new ResponseEntity<>(mangas, HttpStatus.OK);
@@ -67,7 +67,7 @@ public class MangaController {
 	@GetMapping("/mangas/{id}")
 	public ResponseEntity<MangaVO> getManga(
 			@PathVariable(value = "id") @Min(value = 0, message = "The id must be positive") long id) {
-		LOG.debug("[Controller]: Getting the manga with id {}", id);
+		LOG.debug("[MangaController]: Getting the manga with id {}", id);
 		ResponseEntity<MangaVO> responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
 
 		Optional<MangaVO> manga = mangaManager.getManga(id);
@@ -88,7 +88,7 @@ public class MangaController {
 	 */
 	@PostMapping("/mangas")
 	public ResponseEntity<MangaVO> addManga(@Valid @RequestBody MangaVO newManga) {
-		LOG.debug("[Controller]: Creating manga {}", newManga);
+		LOG.debug("[MangaController]: Creating manga {}", newManga);
 		MangaVO manga = mangaManager.addManga(newManga);
 		return new ResponseEntity<>(manga, HttpStatus.CREATED);
 	}
@@ -102,7 +102,7 @@ public class MangaController {
 	@PutMapping("/mangas/{id}")
 	public ResponseEntity<MangaVO> updateManga(@PathVariable(value = "id") long id,
 			@RequestBody MangaVO modifiedManga) {
-		LOG.debug("[Controller]: Updating the manga with id {}", id);
+		LOG.debug("[MangaController]: Updating the manga with id {}", id);
 		ResponseEntity<MangaVO> responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		Optional<MangaVO> manga = mangaManager.getManga(id);
 
@@ -123,7 +123,7 @@ public class MangaController {
 	 */
 	@DeleteMapping("/mangas/{id}")
 	public ResponseEntity<MangaVO> deleteManga(@PathVariable(value = "id") long id) {
-		LOG.debug("[Controller]: Deleting the manga with id {}", id);
+		LOG.debug("[MangaController]: Deleting the manga with id {}", id);
 		ResponseEntity<MangaVO> responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		Optional<MangaVO> manga = mangaManager.getManga(id);
 
@@ -139,7 +139,7 @@ public class MangaController {
 	
 	@ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<String> onConstraintViolationException(final ConstraintViolationException cve) {
-    	LOG.error("[Controller]: Invalid parameter", cve);
+    	LOG.error("[MangaController]: Invalid parameter", cve);
         return new ResponseEntity<>(cve.getMessage(), HttpStatus.BAD_REQUEST);
     }
 

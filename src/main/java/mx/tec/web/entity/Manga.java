@@ -4,22 +4,20 @@
 package mx.tec.web.entity;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  * @author Scyruz
  *
  */
 @Entity
-public class Manga {
+public class Manga implements Serializable {
+	private static final long serialVersionUID = 4304953389466003739L;
 
 	/** Manga id */
 	@Id
@@ -33,7 +31,7 @@ public class Manga {
 	private String author;
 
 	/** Manga publicationDate */
-	private Date publicationDate;
+	private Calendar publicationDate;
 	
 	/**
 	 * No arguments constructor
@@ -49,7 +47,7 @@ public class Manga {
 	 * @param publicationDate
 	 */
 
-	public Manga(final long id, String title, String author, Date publicationDate) {
+	public Manga(final long id, String title, String author, Calendar publicationDate) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
@@ -101,14 +99,14 @@ public class Manga {
 	/**
 	 * @return the publicationDate
 	 */
-	public Date getPublicationDate() {
+	public Calendar getPublicationDate() {
 		return publicationDate;
 	}
 
 	/**
 	 * @param publicationDate the publicationDate to set
 	 */
-	public void setPublicationDate(Date publicationDate) {
+	public void setPublicationDate(Calendar publicationDate) {
 		this.publicationDate = publicationDate;
 	}
 

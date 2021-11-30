@@ -4,8 +4,6 @@
 package mx.tec.web.entity;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,9 +15,10 @@ import java.util.Calendar;
  *
  */
 @Entity
-public class ToRead {
+public class ToRead implements Serializable {
+	private static final long serialVersionUID = -6414894827465868023L;
 
-    /** ToRead id */
+	/** ToRead id */
 	@Id
 	@GeneratedValue
 	private long id;    

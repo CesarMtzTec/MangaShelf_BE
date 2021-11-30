@@ -3,8 +3,6 @@
  */
 package mx.tec.web.vo;
 
-import java.util.Calendar;
-
 /**
  * @author Scyruz
  *
@@ -14,7 +12,7 @@ public class UserVO {
 	private String id;
 	private String username;
 	private String password;
-    private Calendar email;
+    private String email;
     
 	/**
 	 * 
@@ -28,7 +26,7 @@ public class UserVO {
 	 * @param password
 	 * @param email
 	 */
-	public UserVO(String id, String username, String password, Calendar email) {
+	public UserVO(String id, String username, String password, String email) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -80,14 +78,14 @@ public class UserVO {
 	/**
 	 * @return the email
 	 */
-	public Calendar getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
 	/**
 	 * @param email the email to set
 	 */
-	public void setEmail(Calendar email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
