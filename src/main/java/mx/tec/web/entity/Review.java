@@ -1,5 +1,7 @@
 package mx.tec.web.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,9 +14,10 @@ import java.util.Calendar;
  *
  */
 @Entity
-public class Review {
+public class Review implements Serializable {
+	private static final long serialVersionUID = 4345414776097981356L;
 
-    /** Review id */
+	/** Review id */
 	@Id
 	@GeneratedValue
 	private long id;

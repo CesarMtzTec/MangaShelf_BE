@@ -32,5 +32,8 @@ build/
 ### VS Code ###
 .vscode/
 
+### Testing ###
+application-local.properties
+
 ### Debug ###
 *.http
