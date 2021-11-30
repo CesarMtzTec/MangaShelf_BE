@@ -11,7 +11,7 @@ import java.util.Calendar;
  */
 public class MangaVO {
 
-	private String id;
+	private long id;
 	private String title;
 	private String author;
 	private Calendar publicationDate;
@@ -28,7 +28,7 @@ public class MangaVO {
 	 * @param author
 	 * @param publicationDate
 	 */
-	public MangaVO(String id, String title, String author, Calendar publicationDate) {
+	public MangaVO(long id, String title, String author, Calendar publicationDate) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
@@ -38,14 +38,14 @@ public class MangaVO {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

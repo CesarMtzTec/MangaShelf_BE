@@ -11,9 +11,9 @@ import java.util.Calendar;
  */
 public class ToReadVO {
 
-	private String id;
-    private String userId; 
-    private String mangaId;
+	private long id;
+    private long userId; 
+    private long mangaId;
     private Calendar dateAdded;   
     
 	/**
@@ -28,7 +28,7 @@ public class ToReadVO {
 	 * @param mangaId
 	 * @param dateAdded
 	 */
-	public ToReadVO(String id, String userId, String mangaId, Calendar dateAdded) {
+	public ToReadVO(long id, long userId, long mangaId, Calendar dateAdded) {
 		this.id = id;
 		this.userId = userId;
 		this.mangaId = mangaId;
@@ -38,42 +38,42 @@ public class ToReadVO {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
 	/**
 	 * @return the userId
 	 */
-	public String getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(String userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
 	/**
 	 * @return the mangaId
 	 */
-	public String getMangaId() {
+	public long getMangaId() {
 		return mangaId;
 	}
 
 	/**
 	 * @param mangaId the mangaId to set
 	 */
-	public void setMangaId(String mangaId) {
+	public void setMangaId(long mangaId) {
 		this.mangaId = mangaId;
 	}
 
