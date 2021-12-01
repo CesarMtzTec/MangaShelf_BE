@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mx.tec.web.manager.ReviewManager;
 import mx.tec.web.vo.ReviewVO;
-import mx.tec.web.vo.ToReadVO;
 
 @RestController
 @RequestMapping("/api")
