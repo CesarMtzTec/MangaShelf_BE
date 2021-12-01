@@ -11,6 +11,6 @@ import mx.tec.web.entity.ToRead;
 
 @Repository
 public interface ToReadListRepository extends JpaRepository<ToRead, Long> {
-    @Query("FROM ToRead WHERE userId = userId")
+    @Query("FROM ToRead WHERE userId = :userId")
     List<ToRead> getToReadList(@Param("userId") long userId);
 }
