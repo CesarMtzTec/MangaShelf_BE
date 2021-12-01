@@ -30,10 +30,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, "/api/user", "/api/authenticate")
-                .permitAll().anyRequest().authenticated().and().exceptionHandling()
-                .authenticationEntryPoint(jwtAuthEntryPoint).and().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        httpSecurity.csrf().disable().authorizeRequests()
+        	.antMatchers(HttpMethod.POST, "/api/user", "/api/authenticate").permitAll()
+        	.antMatchers(HttpMethod.GET, "/swagger-ui.html", "/swagger-ui/**", "/api-docs/**").permitAll()
+        	.anyRequest().authenticated()
+        	.and().exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint)
+        	.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
