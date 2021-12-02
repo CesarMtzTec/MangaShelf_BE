@@ -23,6 +23,10 @@ public class UserManager {
         return userDAO.findById(id);
     }
 
+    public Optional<UserVO> getUserByUsername(final String username) {
+        return userDAO.findByUsername(username);
+    }
+
     public UserVO addUser(final UserVO user) {
         Optional<UserVO> foundUser = userDAO.findByUsername(user.getUsername());
 

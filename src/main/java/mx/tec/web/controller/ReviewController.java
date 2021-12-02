@@ -43,6 +43,11 @@ public class ReviewController {
         return new ResponseEntity<>(reviews, HttpStatus.OK);
     }
     
+    /**
+     * The end point for GET {url}/reviews/{id}
+     * @param id Review id
+     * @return a json containing the Review info and status 200 if the Review is found or status 204 if the Review is not found
+     */
     @GetMapping("/reviews/{id}")
     public ResponseEntity<ReviewVO> getReview(
             @PathVariable(value = "id") @Min(value = 0, message = "The id must be positive") long id) {
@@ -59,6 +64,11 @@ public class ReviewController {
         return responseEntity;
     }
 
+    /**
+     * The end point for GET {url}/reviews?mangaId={mangaId}
+     * @param mangaId Manga id to get all Reviews from
+     * @return a list of Reviews and status 200 if the Reviews are found or status 204 if the Reviews are not found
+     */
     @GetMapping(value="/reviews", params="mangaId")
     public ResponseEntity<List<ReviewVO>> getMangaReviews(
             @RequestParam @PathVariable(value = "mangaId") @Min(value = 0, message = "The mangaId must be positive") long mangaId) {
@@ -69,6 +79,11 @@ public class ReviewController {
 
     }
     
+    /**
+     * The end point for POST {url}/reviews
+     * @param newReview a json containing the info for the new Review
+     * @return If the Review is created successfully then status 201 and the Review info is returned, otherwise it return status 400
+     */
     @PostMapping("/reviews")
 	public ResponseEntity<ReviewVO> addReview(@Valid @RequestBody ReviewVO newReview) {
 		LOG.info("add a new review: {}", newReview);

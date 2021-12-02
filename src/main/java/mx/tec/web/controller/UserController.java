@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.tec.web.manager.SecurityManager;
@@ -52,19 +53,40 @@ public class UserController {
      * @return If the User is found successfully then status 200 and the User info is returned, otherwise it returns status 204
      */
     @GetMapping("/user/{id}")
-	public ResponseEntity<UserVO> getUser(@PathVariable(value = "id") @Min(value = 0, message = "The id must be positive") long id) {
-		LOG.info("Getting the user by id: {}", id);
-		ResponseEntity<UserVO> responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		Optional<UserVO> user = userManager.getUser(id);
-		
-		if (user.isPresent()) {
-			responseEntity = new ResponseEntity<>(user.get(), HttpStatus.OK);
-		} else {
-			LOG.warn("User with id {} not found ", id);
-		}
+    public ResponseEntity<UserVO> getUser(
+            @PathVariable(value = "id") @Min(value = 0, message = "The id must be positive") long id) {
+        LOG.info("[UserController]: Getting the user by id: {}", id);
+        ResponseEntity<UserVO> responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        Optional<UserVO> user = userManager.getUser(id);
 
-		return responseEntity;
-	}
+        if (user.isPresent()) {
+            responseEntity = new ResponseEntity<>(user.get(), HttpStatus.OK);
+        } else {
+            LOG.warn("[UserController]: User with id {} not found ", id);
+        }
+
+        return responseEntity;
+    }
+
+    /**
+     * The end point for GET {url}/user/{username}
+     * @param username the username to get the User with
+     * @return a json containing username info and status 200 if the User is found or status 204 if the User is not found
+     */
+    @GetMapping(value="/user", params="username")
+    public ResponseEntity<UserVO> getUserByUsername(@RequestParam @PathVariable(value = "username") String username) {
+        LOG.info("[UserController]: Getting the user by username: {}", username);
+        ResponseEntity<UserVO> responseEntity = new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        Optional<UserVO> user = userManager.getUserByUsername(username);
+
+        if (user.isPresent()) {
+            responseEntity = new ResponseEntity<>(user.get(), HttpStatus.OK);
+        } else {
+            LOG.warn("[UserController]: User with username {} not found", username);
+        }
+
+        return responseEntity;
+    }
     
     /**
      * The end point for POST {url}/user
