@@ -37,6 +37,12 @@ public class Review implements Serializable {
     /** Review date */
     private Calendar date;
     
+    /** Review username*/
+	private String username;
+	
+	/** Review mangaTitle */
+	private String mangaTitle;
+    
 	/**
 	 * No arguments constructor
 	 */
@@ -52,13 +58,15 @@ public class Review implements Serializable {
 	 * @param rate
 	 * @param date
 	 */
-	public Review(final long id, Long userId, Long mangaId, String description, Float rate, Calendar date) {
+	public Review(final long id, Long userId, Long mangaId, String description, Float rate, Calendar date, String username, String mangaTitle) {
 		this.id = id;
 		this.userId = userId;
 		this.mangaId = mangaId;
 		this.description = description;
 		this.rate = rate;
 		this.date = date;
+		this.username = username;
+		this.mangaTitle = mangaTitle;
 	}
 
 	/**
@@ -143,6 +151,34 @@ public class Review implements Serializable {
 	 */
 	public void setDate(Calendar date) {
 		this.date = date;
+	}
+
+	/**
+	 * @return the username
+	 */
+	public String getUsername() {
+		return username;
+	}
+
+	/**
+	 * @param username the username to set
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	/**
+	 * @return the mangaTitle
+	 */
+	public String getMangaTitle() {
+		return mangaTitle;
+	}
+
+	/**
+	 * @param mangaTitle the mangaTitle to set
+	 */
+	public void setMangaTitle(String mangaTitle) {
+		this.mangaTitle = mangaTitle;
 	}
 
 }
