@@ -15,25 +15,34 @@ public class ToReadVO {
     private long userId; 
     private long mangaId;
     private Calendar dateAdded;   
-    
+    private String mangaTitle;
+    private String mangaAuthor;
 	/**
 	 * 
 	 */
 	public ToReadVO() {
 	}
 
+	
+
 	/**
 	 * @param id
 	 * @param userId
 	 * @param mangaId
 	 * @param dateAdded
+	 * @param mangaTitle
+	 * @param mangaAuthor
 	 */
-	public ToReadVO(long id, long userId, long mangaId, Calendar dateAdded) {
+	public ToReadVO(long id, long userId, long mangaId, Calendar dateAdded, String mangaTitle, String mangaAuthor) {
 		this.id = id;
 		this.userId = userId;
 		this.mangaId = mangaId;
 		this.dateAdded = dateAdded;
+		this.mangaTitle = mangaTitle;
+		this.mangaAuthor = mangaAuthor;
 	}
+
+
 
 	/**
 	 * @return the id
@@ -89,6 +98,22 @@ public class ToReadVO {
 	 */
 	public void setDateAdded(Calendar dateAdded) {
 		this.dateAdded = dateAdded;
+	}
+
+	public String getMangaAuthor() {
+		return mangaAuthor;
+	}
+
+	public void setMangaAuthor(String mangaAuthor) {
+		this.mangaAuthor = mangaAuthor;
+	}
+
+	public String getMangaTitle() {
+		return mangaTitle;
+	}
+
+	public void setMangaTitle(String mangaTitle) {
+		this.mangaTitle = mangaTitle;
 	}
 
 }
